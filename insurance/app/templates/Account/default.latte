@@ -1,0 +1,24 @@
+{block content}
+
+<h1>All accounts</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Tariff name</th>
+        <th>Balance</th>
+        <th>Note</th>
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $accounts as $account}
+    <tr>
+        <td>{$account->Tariff->Name}</td>
+        <td>&#36; {$account->Balace}</td>
+        <td>{$account->Note}</td>
+    </tr>
+    {/foreach}
+    </tbody>
+</table>
+
+{/block}

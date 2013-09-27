@@ -1,0 +1,53 @@
+{**
+ * My Application layout template.
+ *
+ * @param string   $basePath web base path
+ * @param string   $robots   tell robots how to index the content of a page (optional)
+ * @param array    $flashes  flash messages
+ *}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="robots" content="{$robots}" n:ifset="$robots">
+
+	<title>{block title|striptags|upper}Broker part | Insurance{/block}</title>
+
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css" type="text/css">
+	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css" type="text/css">
+	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
+	{block head}{/block}
+</head>
+
+<body>
+<div id="header">
+    <div id="header-inner">
+        <div class="title"><a href="{link Homepage:}">Broker part | Insurance</a></div>
+    </div>
+</div>
+
+<div id="container">
+    <div id="sidebar">
+        <div class="task-lists">
+            <ul>
+                {foreach $menuItems as $id=>$item}
+                    <li><a href="{link $id}">{$item}</a></li>
+                {/foreach}
+            </ul>
+        </div>
+    </div>
+
+    <div id="content">
+        <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+
+        {include #content}
+    </div>
+
+    <div id="footer">
+
+    </div>
+</div>
+</body>
+</html>

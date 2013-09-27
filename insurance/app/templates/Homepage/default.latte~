@@ -1,0 +1,26 @@
+{block content}
+
+<h1>All Tariffs</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>QuoteComission</th>
+        <th>QuoteCharge</th>
+        <th>Note></th>
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $tariffs as $tariff}
+    <tr>
+        <td>{$tariff->Name}</td>
+        <td>&#36; {$tariff->QuoteComission}</td>
+        <td>&#36; {$tariff->QuoteCharge}</td>
+        <td>{$tariff->Note}</td>
+    </tr>
+    {/foreach}
+    </tbody>
+</table>
+
+{/block}
